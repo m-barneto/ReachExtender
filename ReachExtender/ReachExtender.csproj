@@ -46,6 +46,7 @@
     <Reference Include="Comfort">
       <HintPath>References\Comfort.dll</HintPath>
     </Reference>
+    <Reference Include="netstandard" />
     <Reference Include="spt-common">
       <HintPath>References\spt-common.dll</HintPath>
     </Reference>
