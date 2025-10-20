@@ -4,7 +4,7 @@ using ReachExtender.Patches;
 using UnityEngine;
 
 namespace ReachExtender {
-    [BepInPlugin("Mattdokn.ReachExtender", "ReachExtender", "1.4.0")]
+    [BepInPlugin("Mattdokn.ReachExtender", "ReachExtender", "1.4.1")]
     public class ReachExtenderPlugin : BaseUnityPlugin {
 
         public static ConfigEntry<float> InteractionDistance;
