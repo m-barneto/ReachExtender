@@ -13,14 +13,14 @@ namespace ReachExtender.Patches {
             __result = null;
             GameObject gameObject = null;
             if (ReachExtenderPlugin.SphereCastRadius.Value == 0f) {
-                gameObject = EFTPhysicsClass.Raycast(ray, out hit, Mathf.Max(EFTHardSettings.Instance.LOOT_RAYCAST_DISTANCE, EFTHardSettings.Instance.PLAYER_RAYCAST_DISTANCE + EFTHardSettings.Instance.BEHIND_CAST), GameWorld.InteractiveLootMaskWPlayer) ? hit.collider.gameObject : null;
+                gameObject = PhysicsExtensions.Raycast(ray, out hit, Mathf.Max(EFTHardSettings.Instance.LOOT_RAYCAST_DISTANCE, EFTHardSettings.Instance.PLAYER_RAYCAST_DISTANCE + EFTHardSettings.Instance.BEHIND_CAST), GameWorld.InteractiveLootMaskWPlayer) ? hit.collider.gameObject : null;
             } else {
-                gameObject = EFTPhysicsClass.SphereCast(ray, ReachExtenderPlugin.SphereCastRadius.Value, out hit, Mathf.Max(EFTHardSettings.Instance.LOOT_RAYCAST_DISTANCE, EFTHardSettings.Instance.PLAYER_RAYCAST_DISTANCE + EFTHardSettings.Instance.BEHIND_CAST), GameWorld.InteractiveLootMaskWPlayer) ? hit.collider.gameObject : null;
+                gameObject = PhysicsExtensions.SphereCast(ray, ReachExtenderPlugin.SphereCastRadius.Value, out hit, Mathf.Max(EFTHardSettings.Instance.LOOT_RAYCAST_DISTANCE, EFTHardSettings.Instance.PLAYER_RAYCAST_DISTANCE + EFTHardSettings.Instance.BEHIND_CAST), GameWorld.InteractiveLootMaskWPlayer) ? hit.collider.gameObject : null;
             }
 
             if (ReachExtenderPlugin.ShowSphereCastDebug.Value && ReachExtenderPlugin.SphereCastRadius.Value != 0f) {
                 RaycastHit balls;
-                GameObject ball = EFTPhysicsClass.Raycast(ray, out balls, Mathf.Infinity, GameWorld.LootMaskObstruction) ? balls.collider.gameObject : null;
+                GameObject ball = PhysicsExtensions.Raycast(ray, out balls, Mathf.Infinity, GameWorld.LootMaskObstruction) ? balls.collider.gameObject : null;
                 // Get/create sphere and move/scale it to where we want
                 if (ReachExtenderPlugin.Sphere == null) {
                     ReachExtenderPlugin.Sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
